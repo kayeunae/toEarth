@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+</style>
+</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- create Club Start -->
+		<div class="container-fluid py-5">
+			<div class="container">
+				<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+					<p class="fs-5 fw-bold text-primary">함께하는 우리</p>
+					<h1 class="display-5 mb-5">소모임 만들기</h1>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
+							<div class="row g-3">
+								<div class="col-sm-12">
+									<div class="form-floating" style="text-align: center;">
+										<select class="selbox" name="region" required>
+											<option value="" hidden selected>활동 지역</option>
+											<option value="seoul">서울</option>
+											<option value="incheon">인천</option>
+											<option value="ggd">경기</option>
+											<option value="ccd">충청도</option>
+											<option value="gwd">강원도</option>
+											<option value="jld">전라도</option>
+											<option value="gsd">경상도</option>
+											<option value="jeju">제주도</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="col-sm-12 file_wrapper" id="FileUpload">
+										<div class="wrapper">
+											<div class="upload">
+												<span class="upload__button">소모임 대표 이미지 등록</span>
+												<input id="upload" type="file" class="d-none" onchange="upload_com()">
+											</div>
+											<div id="file_div" class="uploaded uploaded--one" style="display:none">
+												<img alt="파일 이미지" src="/img/icon/icon-11.png" id="file">
+												<div class="file">
+													<div class="file__name">
+														<p id="file_name"></p>
+														<i id="cancel" class="fas fa-times"></i>
+													</div>
+													<div class="progress">
+														<div
+															class="progress-bar bg-success progress-bar-striped progress-bar-animated"
+															style="width: 100%"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-floating">
+										<input type="text" class="form-control border-0" id="clubName" placeholder="Club Name">
+										<label for="clubName">소모임 이름</label>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-floating">
+                                   		<input type="text" class="form-control border-0" id="keyword" placeholder="Keyword">
+                                    	<label for="keyword">검색 키워드를 적어주세요.</label>
+									</div>
+								</div>
+								
+								<div class="col-sm-12">
+									<div class="form-floating">
+                                    <textarea class="form-control border-0" placeholder="키워드를 적어주세요." id="announce" style="height: 500px"></textarea>
+                                    <label for="announce">
+                                    	소모임 취지와 활동 내용, 일정 등 소모임 관련 세부 사항을 작성해 주세요.<br />
+                                    	일반 사용자는 본 내용을 확인 후 가입을 하게 됩니다. 
+                                    </label>
+									</div>
+								</div>
+								<div class="col-12 text-center">
+									<button class="btn btn-primary py-3 px-4" type="submit">소모임 만들기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Sign up End -->
+		
+		<script>
+			$('.upload__button').click(function(){
+				$('#upload').trigger('click'); 
+			})
+			$('#cancel').click(function(){
+				$('#file_name').html('');
+				$("#file").val('');
+				$('#file_div').hide();
+			})
+			
+			function upload_com(){
+				
+				var fileValue = $("#upload").val().split("\\");
+				var fileName = fileValue[fileValue.length-1]; // 파일명
+				$('#file_name').html(fileName);
+				$('#file_div').show();
+			}
+			
+		</script>
+	</div>
+</body>
+</html>

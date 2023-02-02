@@ -15,7 +15,7 @@
 <body>
 	<div layout:fragment="content">
 	
-		<!-- Quote Start -->
+		<!-- Sign up Start -->
 		<div class="container-fluid py-5">
 			<div class="container">
 				<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
@@ -24,56 +24,71 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-lg-7">
-						<div class="bg-light rounded p-4 p-sm-5 wow fadeInUp"
-							data-wow-delay="0.1s">
+						<div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
 							<div class="row g-3">
-								<div class="col-sm-6">
+								<div class="col-sm-12">
 									<div class="form-floating">
-										<input type="text" class="form-control border-0" id="gname"
-											placeholder="Gurdian Name"> <label for="gname">Your
-											Name</label>
+										<input type="text" class="form-control border-0" id="email" placeholder="Email">
+										<label for="email">이메일</label>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-floating">
-										<input type="email" class="form-control border-0" id="gmail"
-											placeholder="Gurdian Email"> <label for="gmail">Your
-											Email</label>
+										<input type="text" class="form-control border-0" id="name" placeholder="Name">
+										<label for="name">이름</label>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-floating">
-										<input type="text" class="form-control border-0" id="cname"
-											placeholder="Child Name"> <label for="cname">Your
-											Mobile</label>
+										<input type="text" class="form-control border-0" id="phone" placeholder="Phone">
+										<label for="phone">연락처</label>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-floating">
-										<input type="text" class="form-control border-0" id="cage"
-											placeholder="Child Age"> <label for="cage">Service
-											Type</label>
+										<input type="password" class="form-control border-0" id="password" placeholder="Password">
+										<label for="password">비밀번호</label>
 									</div>
 								</div>
-								<div class="col-12">
+								<div class="col-sm-6">
 									<div class="form-floating">
-										<textarea class="form-control border-0"
-											placeholder="Leave a message here" id="message"
-											style="height: 100px"></textarea>
-										<label for="message">Message</label>
+										<input type="password" class="form-control border-0" id="password" placeholder="Password Confirm">
+										<label for="password">비밀번호 확인</label>
+									</div>
+								</div>
+								<div class="div-contents">
+									<div class="col-12 text-center">
+										<span>회원 등급 선택</span>
+									</div>
+									<div class="d-flex justify-content-center">
+										<div class=" text-center mx-3">
+											<div class="">
+												<input type="radio" name="grade" value="BASIC" id="BASIC" autocomplete="off" checked>
+												<label for="BASIC">BASIC</label>
+											</div>
+										</div>
+										<div class=" text-center mx-3">
+											<div class="">
+												<input type="radio" name="grade" value="MASTER" id="MASTER" autocomplete="off">
+												<label for="MASTER">MASTER</label>
+											</div>
+										</div>
+									</div>
+									<div class="col-12 text-center">
+										<span>MASTER 회원은 소모임을 개설할 수 있는<br> 권한이 부여됩니다.</span>
 									</div>
 								</div>
 								<div class="col-12 text-center">
-									<button class="btn btn-primary py-3 px-4" type="submit">Submit
-										Now</button>
+									<button class="btn btn-primary py-3 px-4" type="submit">가입하기</button>
 								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- Quote End -->
+		<!-- Sign up End -->
 
 	</div>
 

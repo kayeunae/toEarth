@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+</style>
+</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+	
+		<!-- Sign up Start -->
+		<div class="container-fluid py-5">
+			<div class="container">
+				<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+					<p class="fs-5 fw-bold text-primary">LOG IN</p>
+					<h1 class="display-5 mb-5">로그인</h1>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-7">
+						<div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
+							<div class="row g-3">
+								<div class="col-sm-12">
+									<div class="form-floating">
+										<input type="text" class="form-control border-0" id="email" placeholder="Email">
+										<label for="email">이메일</label>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-floating">
+										<input type="password" class="form-control border-0" id="password" placeholder="Password">
+										<label for="password">비밀번호</label>
+									</div>
+								</div>
+								<label><input type="checkbox" name="id_save" id="id_save">아이디 기억하기</label>
+								<div class="col-12 text-center">
+									<button class="btn btn-primary py-3 px-4" type="submit">로그인</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Sign up End -->
+
+	</div>
+
+</body>
+</html>
