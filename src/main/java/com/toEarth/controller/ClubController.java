@@ -16,8 +16,8 @@ public class ClubController {
 		return "club/createClub";
 	}
 	
-	@GetMapping(value="login")
-	public String logIn() {
-		return "member/login";
+	@GetMapping(value="list")
+	public String clubList() {
+		return "club/clubList";
 	}
 }

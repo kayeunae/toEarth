@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+	<style>
+</style>
+</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+	
+		<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+			<p class="fs-5 fw-bold text-primary">Greenery People</p>
+			<h1 class="display-5 mb-5">소모임</h1>
+		</div>
+		
+		        <div class="row wow fadeInUp" data-wow-delay="0.3s">
+        	<div class="col-12 text-center">
+            	<ul class="list-inline rounded mb-5" id="portfolio-flters">
+                	<li class="mx-2 active" data-filter="*">All</li>
+                	<li class="mx-2" data-filter=".first">전국</li>
+                	<li class="mx-2" data-filter=".second">서울</li>
+                	<li class="mx-2" data-filter=".second">인천</li>
+                	<li class="mx-2" data-filter=".second">경기</li>
+                	<li class="mx-2" data-filter=".second">강원도</li>
+                	<li class="mx-2" data-filter=".second">충청도</li>
+                	<li class="mx-2" data-filter=".second">경상도</li>
+                	<li class="mx-2" data-filter=".second">전라도</li>
+                	<li class="mx-2" data-filter=".second">제주도</li>
+                </ul>
+            </div>
+        </div>
+		
+		<div class="col-5 position-relative w-30 text-center" style="margin-left: 30%; margin-top: -20px; margin-bottom: 20px">
+        	<input class="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="text" placeholder="검색어를 입력해주세요.">
+        	<button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">검색</button>
+        </div>
+ 
+
+		<!-- List1 Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<div class="row g-5 align-items-end">
+					<div class="col-lg-4 col-md-5 wow">
+						<img class="img-fluid rounded text-center" src="/img/clubmain.jpg">
+					</div>
+					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
+						<h4 class="text-primary mb-4">[지역 들어가는 곳]</h4>
+						<h2 class="display-7 mb-4">[소모임 이름 들어가는 곳]</h2>
+						<p class="mb-4">[소모임 검색 키워드] Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+					</div>
+					<div class="col-lg-2 col-md-12 wow">
+						<div class="row g-5" style="padding-bottom: 110px;">
+							<a class="btn btn-primary py-3 px-4 align-top space" href="">둘러보기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<!-- List1 End -->
+		
+		<!-- List2 Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<div class="row g-5 align-items-end">
+					<div class="col-lg-4 col-md-5 wow">
+						<img class="img-fluid rounded text-center" src="/img/clubmain.jpg">
+					</div>
+					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
+						<h4 class="text-primary mb-4">[지역 들어가는 곳]</h4>
+						<h3 class="display-7 mb-4">[소모임 이름 들어가는 곳]</h3>
+						<p class="mb-4">[소모임 검색 키워드] Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+					</div>
+					<div class="col-lg-2 col-md-12 wow">
+						<div class="row g-5" style="padding-bottom: 110px;">
+							<a class="btn btn-primary py-3 px-4 align-top space" href="">둘러보기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<!-- List2 End -->
+		
+		<!-- List3 Start -->
+		<div class="container-xxl py-5">
+			<div class="container">
+				<div class="row g-5 align-items-end">
+					<div class="col-lg-4 col-md-5 wow">
+						<img class="img-fluid rounded text-center" src="/img/clubmain.jpg">
+					</div>
+					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
+						<h4 class="text-primary mb-4">[지역 들어가는 곳]</h4>
+						<h1 class="display-7 mb-4">[소모임 이름 들어가는 곳]</h1>
+						<p class="mb-4">[소모임 검색 키워드] Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+					</div>
+					<div class="col-lg-2 col-md-12 wow">
+						<div class="row g-5" style="padding-bottom: 110px;">
+							<a class="btn btn-primary py-3 px-4 align-top space" href="">둘러보기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<!-- List3 End -->
+		
+	</div>
+</body>
+</html>
