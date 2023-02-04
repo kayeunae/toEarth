@@ -14,7 +14,9 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	
+		<form action="/member/signup" method="post" th:object="${signDto}">
+		
+		
 		<!-- Sign up Start -->
 		<div class="container-fluid py-5">
 			<div class="container">
@@ -89,7 +91,8 @@
 			</div>
 		</div>
 		<!-- Sign up End -->
-
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+	</form>
 	</div>
 
 </body>
