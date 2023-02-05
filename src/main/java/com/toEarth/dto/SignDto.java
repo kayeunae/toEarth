@@ -6,8 +6,6 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.toEarth.constant.Grade;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,8 +24,6 @@ public class SignDto {
 	@Length(min = 8, max = 16, message ="비밀번호는 8자 이상, 16자 이하로 입력해주세요.")
 	private String password;
 	
-	private Grade grade;
-	
-	@NotEmpty(message="연락처는 필수 입력 값입니다.")
-	private Integer phone;
+	@NotBlank(message="연락처는 필수 입력 값입니다.")
+	private String phone;
 }

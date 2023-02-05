@@ -40,7 +40,7 @@ public class Member {
 	@Enumerated(EnumType.STRING)
 	private Grade grade;
 	
-	private Integer phone;
+	private String phone;
 	
 	public static Member createMember(SignDto signDto, PasswordEncoder passwordEncoder) {
 		Member member = new Member();
