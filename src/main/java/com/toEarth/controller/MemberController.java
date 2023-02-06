@@ -52,4 +52,11 @@ public class MemberController {
 	public String logIn() {
 		return "member/login";
 	}
+	
+	@GetMapping(value="login/error")
+	public String loginError(Model model) {
+		model.addAttribute("loginErrorMsg", "아이디 또는 비밀번호를 확인해주세요.");
+		return "member/login";
+	}
+	
 }

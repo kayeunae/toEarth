@@ -13,7 +13,6 @@
     
     
     // Initiate the wowjs
-    new WOW().init();
 
 
     // Sticky Navbar
@@ -42,7 +41,7 @@
 
     
 
-
+/*
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
@@ -69,7 +68,7 @@
             '<i class="bi bi-chevron-right"></i>'
         ]
     });
-
+*/
     
 })(jQuery);
 

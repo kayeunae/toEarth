@@ -5,53 +5,98 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/cookie.js}"></script>
+
+<!-- 각 페이지에 script가 작성될 위치 -->
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		
+	</script>
+</th:block>
 
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
-</style>
+		.error {
+			color: #bd2130;
+		}
+	</style>
 </th:block>
 </head>
 <body>
 	<div layout:fragment="content">
-	
-		<!-- Sign up Start -->
-		<div class="container-fluid py-5">
-			<div class="container">
-				<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-					<p class="fs-5 fw-bold text-primary">LOG IN</p>
-					<h1 class="display-5 mb-5">로그인</h1>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-lg-7">
-						<div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
-							<div class="row g-3">
-								<div class="col-sm-12">
-									<div class="form-floating">
-										<input type="text" class="form-control border-0" id="email" placeholder="Email">
-										<label for="email">이메일</label>
+		<form action="/member/login" method="post" onsubmit="controllCookie()">
+			<!-- Sign up Start -->
+			<div class="container-fluid py-5">
+				<div class="container">
+					<div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+						<p class="fs-5 fw-bold text-primary">LOG IN</p>
+						<h1 class="display-5 mb-5">로그인</h1>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-lg-7">
+						
+							<div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
+								<div class="row g-3">
+									<div class="col-sm-12">
+										<div class="form-floating">
+											<input type="text" class="form-control border-0" name="email" id="email" placeholder="Email">
+											<label th:for="email">이메일</label>
+										</div>
 									</div>
-								</div>
-								<div class="col-sm-12">
-									<div class="form-floating">
-										<input type="password" class="form-control border-0" id="password" placeholder="Password">
-										<label for="password">비밀번호</label>
+									<div class="col-sm-12">
+										<div class="form-floating">
+											<input type="password" class="form-control border-0" name="password" id="password" placeholder="Password">
+											<label th:for="password">비밀번호</label>
+										</div>
 									</div>
+									<p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+									<label><input type="checkbox" name="id_save" id="id_save">아이디 기억하기</label>
+									<div class="col-12 text-center">
+										<button class="btn btn-primary py-3 px-4" type="submit" id="loginbtn">로그인</button>
+									</div>
+									<a class="text-center btn-link" href="/member/sign" style="color:#0f4229; font-weight:500;">회원가입</a>
 								</div>
-								<label><input type="checkbox" name="id_save" id="id_save">아이디 기억하기</label>
-								<div class="col-12 text-center">
-									<button class="btn btn-primary py-3 px-4" type="submit">로그인</button>
-								</div>
-
 							</div>
 						</div>
 					</div>
 				</div>
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 			</div>
-		</div>
-		<!-- Sign up End -->
-
+			<!-- Sign up End -->
+		</form>
+		<script>
+		
+		if(getCookie("setCookieYN") == 'Y') {
+			$("#id_save").prop("checked", true);
+			$("#email").val(getCookie("userInputId"));
+		} else {
+			$("#id_save").prop("checked", false);
+		}
+		
+		function controllCookie(){
+			var userInputId = getCookie("userInputId");
+			var setCookieYN	= getCookie("setCookieYN");
+			
+// 			if(setCookieYN == 'Y') {
+// 				$("#id_save").prop("checked", true);
+// 				$("#email").val(userInputId);
+// 			} else {
+// 				$("#id_save").prop("checked", false);
+// 			}
+			
+			
+				if($("#id_save").is(":checked")) {
+					var userInputId = $("#email").val();
+					setCookie("userInputId", userInputId, 60);
+					setCookie("setCookieYN", "Y", 60);
+				} else {
+					deleteCookie("userInputId");
+					deleteCookie("setCookieYN");
+				}
+			
+		}
+		</script>
 	</div>
-
 </body>
 </html>

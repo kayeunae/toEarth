@@ -16,13 +16,33 @@
 				alert(errorMessage);
 			}
 		});
-	</script>
+		
+		//비밀번호가 다를 때
+		function isSame(){
+			var pw1 = $("#password").val();
+			var pw2 = $("#password2").val();
+			
+			if(pw1 != "" && pw2 == ""){
+				null;
+			} else if(pw1 != "" || pw2 != "") {
+				if(pw1 == pw2){
+					$("#pwCheck").css('display', 'none');
+				} else {
+					$("#pwCheck").css('display','inline-block');
+				}
+			}
+		}
+		</script>
 </th:block>
 
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
-</style>
+		.fieldError {
+			color: #bd2130;
+			margin-bottom: -0.5rem
+		}
+	</style>
 </th:block>
 </head>
 <body>
@@ -46,8 +66,8 @@
 											<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 												class="fieldError">Incorrect Data</p>
 										</div>
-									</div>
-									<div class="col-sm-6">
+									</div>									
+									<div class="col-sm-12">
 										<div class="form-floating">
 											<input type="text" th:field="*{name}" class="form-control border-0" id="name" placeholder="Name">
 											<label th:for="name">이름</label>
@@ -55,7 +75,7 @@
 												class="fieldError">Incorrect Data</p>
 										</div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 										<div class="form-floating">
 											<input type="text" th:field="*{phone}" class="form-control border-0" id="phone" placeholder="Phone">
 											<label th:for="phone">연락처</label>
@@ -63,21 +83,21 @@
 												class="fieldError">Incorrect Data</p>										
 										</div>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 										<div class="form-floating">
-											<input type="password" th:field="*{password}" class="form-control border-0" id="password" placeholder="Password">
+											<input type="password" onchange="isSame()" th:field="*{password}" class="form-control border-0" id="password" placeholder="Password">
 											<label th:for="password">비밀번호</label>
 											<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
 												class="fieldError">Incorrect Data</p>										
 										</div>
 									</div>
-	<!-- 								<div class="col-sm-6">
+	 								<div class="col-sm-12">
 										<div class="form-floating">
-											<input type="password" class="form-control border-0" id="password2" placeholder="Password Confirm">
+											<input type="password" onchange="isSame()" class="form-control border-0" id="password2" placeholder="Password Confirm">
 											<label for="password2">비밀번호 확인</label>
-											<p th:if=""></p>
+											<span id="pwCheck" style="display:none; color:#bd2130;">비밀번호가 일치하지 않습니다.</span>
 										</div>
-									</div> -->
+									</div>
 	<!-- 								<div class="div-contents">
 										<div class="col-12 text-center">
 											<span>회원 등급 선택</span>
@@ -103,6 +123,7 @@
 									<div class="col-12 text-center">
 										<button type="submit" class="btn btn-primary py-3 px-4">가입하기</button>
 									</div>
+									<a class="text-center btn-link" href="/member/login" style="color:#0f4229; font-weight:500;">로그인</a>
 								</div>
 							</div>
 						</div>

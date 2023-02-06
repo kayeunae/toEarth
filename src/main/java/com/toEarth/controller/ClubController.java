@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 public class ClubController {
 
 	@GetMapping(value="create")
-	public String signUp() {
+	public String crateClub() {
 		return "club/createClub";
 	}
 	

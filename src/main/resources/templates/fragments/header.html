@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -52,26 +53,26 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="#" class="nav-item nav-link active">홈</a> 
-					<a href="#" class="nav-item nav-link">소개</a> 
+					<a href="#" class="nav-item nav-link active" >홈</a> 
+					<a href="#" class="nav-item nav-link" >소개</a> 
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">함께하는 우리</a>
 						<div class="dropdown-menu bg-light m-0">
-							<a href="/club/list" class="dropdown-item">지역별 소모임</a> 
-							<a href="#" class="dropdown-item">원데이클래스</a> 
-							<a href="#" class="dropdown-item">서명운동</a> 
+							<a href="/club/list" class="dropdown-item" sec:authorize=permitAll>지역별 소모임</a> 
+							<a href="#" class="dropdown-item" >원데이클래스</a> 
+							<a href="#" class="dropdown-item" >서명운동</a> 
 						</div>
 					</div>
 					<a href="#" class="nav-item nav-link">함께하는 마음</a> 
-					<a href="/member/login" class="nav-item nav-link">로그인</a>
+					<a href="/member/login" class="nav-item nav-link" sec:authorize="isAnonymous()">로그인</a>
+					<a href="/member/logout" class="nav-item nav-link" sec:authorize="isAuthenticated()">로그아웃</a>
 				</div>
-				<a href="/member/sign" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block">
+				<a href="/member/sign" class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block" sec:authorize="isAnonymous()">
 					회원가입<i class="fa fa-arrow-right ms-3"></i>
 				</a>
 			</div>
 		</nav>
 		<!-- Navbar End -->
-
 	</div>
 </body>
 </html>
