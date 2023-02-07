@@ -13,12 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.toEarth.dto.ClubDto;
 import com.toEarth.entity.Club;
+import com.toEarth.service.ClubService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequestMapping("/club")
 @Controller
 public class ClubController {
+	private final ClubService clubService;
 
 	@GetMapping(value = "create")
 	public String crateClub(Model model) {
@@ -29,8 +31,19 @@ public class ClubController {
 	
 	@PostMapping(value="create") public String newClub(@Valid ClubDto clubDto, BindingResult bindingResult, 
 			Model model, @RequestParam("file") MultipartFile file) {
-		Club club = new Club();
-		club = club.createClub(clubDto);
+		
+		if(bindingResult.hasErrors()) {
+			return "club/createClub";
+		}
+		
+		try {
+			Club club = Club.createClub(clubDto);
+			club = 
+			
+		} catch (Exception e) {
+
+		}
+		
 		
 	}
 	

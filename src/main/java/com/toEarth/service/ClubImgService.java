@@ -16,6 +16,6 @@ public class ClubImgService {
 	
 	public final FileService fileService;
 	
-//	public void saveClubImg()
+	public void saveClubImg()
 
 }
