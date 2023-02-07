@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.toEarth.dto.SignDto;
+import com.toEarth.dto.MemberDto;
 import com.toEarth.entity.Member;
 import com.toEarth.service.MemberService;
 
@@ -26,12 +26,12 @@ public class MemberController {
 
 	@GetMapping(value="sign")
 	public String sign(Model model) {
-		model.addAttribute("signDto", new SignDto());
+		model.addAttribute("signDto", new MemberDto());
 		return "member/sign";
 	}
 	
 	@PostMapping(value="signup")
-	public String signUp(@Valid SignDto signDto, BindingResult bindingResult, Model model) {
+	public String signUp(@Valid MemberDto signDto, BindingResult bindingResult, Model model) {
 		
 		if(bindingResult.hasErrors()) {
 			return "member/sign";

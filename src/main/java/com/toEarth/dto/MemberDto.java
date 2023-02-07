@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SignDto {
+public class MemberDto {
 	
 	@NotEmpty(message="이메일은 필수 입력 값입니다.")
 	@Email(message="이메일 형식으로 입력해주세요.")

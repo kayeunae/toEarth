@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.toEarth.constant.Grade;
-import com.toEarth.dto.SignDto;
+import com.toEarth.dto.MemberDto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -42,13 +42,13 @@ public class Member {
 	
 	private String phone;
 	
-	public static Member createMember(SignDto signDto, PasswordEncoder passwordEncoder) {
+	public static Member createMember(MemberDto memberDto, PasswordEncoder passwordEncoder) {
 		Member member = new Member();
-		member.setEmail(signDto.getEmail());
-		member.setName(signDto.getName());
-		member.setPhone(signDto.getPhone());
+		member.setEmail(memberDto.getEmail());
+		member.setName(memberDto.getName());
+		member.setPhone(memberDto.getPhone());
 		
-		String password = passwordEncoder.encode(signDto.getPassword());
+		String password = passwordEncoder.encode(memberDto.getPassword());
 		member.setPassword(password);
 		
 		member.setGrade(Grade.BASIC);
