@@ -57,4 +57,10 @@ public class Club {
 		
 		return club;
 	}
+	
+	public void updateImg(String oriImgName, String imgName, String imgUrl) {
+		this.oriImgName = oriImgName;
+		this.imgName = imgName;
+		this.imgUrl = imgUrl;
+	}
 }

@@ -5,11 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 각 페이지에 script가 작성될 위치 -->
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		$(document).ready(function(){
+			var errorMessage = [[${errorMessage}]];
+			alert(errorMessage);
+			
+			bindDomEvent();
+		});	
+	
+	
+		//파일 첨부 시 이미지 파일인지 검사
+		function bindDomEvent(){
+			$(".file-input").on("change", function(){
+				var fileName = $(this).val().split("\\").pop(); //이미지 파일명 / pop() : 배열의 마지막 요소를 제거한 후 제거한 요소 반환
+				var fileExt = fileName.subString(fileName.lastIndexOf(".")+1); //확장자 추출
+				fileExt = fileExt.toLowerCase();
+				
+				if(fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp") {
+					alert("이미지 파일만 등록할 수 있습니다.");
+					return;
+				}
+			});
+		}
+	</script>
+</th:block>
 
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
-</style>
+		.fieldError {
+			color: #bd2130;
+			margin-bottom: -0.5rem
+		}
+	</style>
 </th:block>
 </head>
 <body>
@@ -49,7 +79,7 @@
 											<div class="wrapper">
 												<div class="upload">
 													<span class="upload__button">소모임 대표 이미지 등록</span>
-													<input id="upload" type="file" name="file" class="d-none" onchange="upload_com()">
+													<input id="upload" type="file" name="file" class="d-none file-input" onchange="upload_com()">
 												</div>
 												<div id="file_div" class="uploaded uploaded--one" style="display:none">
 													<img alt="파일 이미지" src="/img/icon/icon-11.png" id="file">
