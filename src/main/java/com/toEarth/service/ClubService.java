@@ -2,9 +2,13 @@ package com.toEarth.service;
 
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.toEarth.dto.ClubListDto;
+import com.toEarth.dto.ClubSearchDto;
 import com.toEarth.entity.Club;
 import com.toEarth.repository.ClubRepository;
 
@@ -18,6 +22,12 @@ public class ClubService {
 	
 	public Club saveClub(Club club) throws Exception {
 		return clubRepository.save(club);
+	}
+	
+	//소모임 리스트 가져오기
+	@Transactional(readOnly = true)
+	public Page<ClubListDto> getClubList(ClubSearchDto clubSearchDto, Pageable pageable){
+		return clubRepository.
 	}
 	
 	

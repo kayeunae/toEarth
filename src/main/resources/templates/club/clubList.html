@@ -21,19 +21,21 @@
 			<h1 class="display-5 mb-5">소모임</h1>
 		</div>
 		
+		<form action="list" method="get" th:object="{clubListDto}"> </form>
+		
 		<!-- region -->
 		<div class="row wow fadeInUp" data-wow-delay="0.3s">
-        	<div class="col-12 text-center">
+        	<div class="col-12 text-center" th:object="${clubSearchDto}">
             	<ul class="list-inline rounded mb-5" id="portfolio-flters">
                 	<li class="mx-2 active" data-filter="*">전국</li>
-                	<li class="mx-2" data-filter=".first">서울</li>
-                	<li class="mx-2" data-filter=".second">인천</li>
-                	<li class="mx-2" data-filter=".second">경기</li>
-                	<li class="mx-2" data-filter=".second">강원도</li>
-                	<li class="mx-2" data-filter=".second">충청도</li>
-                	<li class="mx-2" data-filter=".second">경상도</li>
-                	<li class="mx-2" data-filter=".second">전라도</li>
-                	<li class="mx-2" data-filter=".second">제주도</li>
+                	<li class="mx-2" data-filter=".seoul">서울</li>
+                	<li class="mx-2" data-filter=".incheon">인천</li>
+                	<li class="mx-2" data-filter=".ggd">경기</li>
+                	<li class="mx-2" data-filter=".gwd">강원도</li>
+                	<li class="mx-2" data-filter=".ccd">충청도</li>
+                	<li class="mx-2" data-filter=".gsd">경상도</li>
+                	<li class="mx-2" data-filter=".jld">전라도</li>
+                	<li class="mx-2" data-filter=".jeju">제주도</li>
                 </ul>
             </div>
         </div>
@@ -45,7 +47,7 @@
         </div>
  	
  		
- 		<th:block>
+ 		<th:block th:each>
  		
  		</th:block>
 
