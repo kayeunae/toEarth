@@ -7,5 +7,6 @@ import lombok.Setter;
 @Setter
 public class ClubSearchDto {
 	private String regionBy;
+	private String searchBy;
 	private String searchQuery = "";
 }

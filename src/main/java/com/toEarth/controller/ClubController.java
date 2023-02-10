@@ -1,5 +1,6 @@
 package com.toEarth.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.toEarth.dto.ClubDto;
 import com.toEarth.dto.ClubListDto;
+import com.toEarth.dto.ClubSearchDto;
 import com.toEarth.entity.Club;
 import com.toEarth.entity.ClubMember;
 import com.toEarth.service.ClubImgService;
@@ -70,11 +73,24 @@ public class ClubController {
 	
 
 	//소모임 리스트 출력
-	@GetMapping(value = "list")
-	public String clubList(Club club, ClubMember clubMember, Model model, Optional<Integer> page) {
+	@GetMapping(value = {"list", "list/{page}"})
+	public String clubList(ClubSearchDto clubSearchDto, @PathVariable("page") Optional<Integer> page, Model model) {
+//		Page<ClubListDto> clubs = clubService.getClubList(clubSearchDto, pageable);
+		
+
 		//page.isPresent() ? page.get() : 0 => url 경로에 페이지 넘버가 있으면 그걸 출력, 아니면 0
-		Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
-		Page<ClubListDto> clubs = clubService.
+		Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
+		
+		Page<Club> clubs = clubService.getClubList(clubSearchDto, pageable);
+		
+		model.addAttribute("clubs", clubs);
+		model.addAttribute("clubSearchDto", clubSearchDto);
+		model.addAttribute("maxPage", 5);
+		
+//		List<Club> clubs = clubService.getClubListBasic();
+//		model.addAttribute("clubs", clubs);
+		
+		return "club/clubList";
 		
 	}
 

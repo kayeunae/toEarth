@@ -21,104 +21,95 @@
 			<h1 class="display-5 mb-5">소모임</h1>
 		</div>
 		
-		<form action="list" method="get" th:object="{clubListDto}"> </form>
 		
 		<!-- region -->
 		<div class="row wow fadeInUp" data-wow-delay="0.3s">
         	<div class="col-12 text-center" th:object="${clubSearchDto}">
             	<ul class="list-inline rounded mb-5" id="portfolio-flters">
                 	<li class="mx-2 active" data-filter="*">전국</li>
-                	<li class="mx-2" data-filter=".seoul">서울</li>
-                	<li class="mx-2" data-filter=".incheon">인천</li>
-                	<li class="mx-2" data-filter=".ggd">경기</li>
-                	<li class="mx-2" data-filter=".gwd">강원도</li>
-                	<li class="mx-2" data-filter=".ccd">충청도</li>
-                	<li class="mx-2" data-filter=".gsd">경상도</li>
-                	<li class="mx-2" data-filter=".jld">전라도</li>
-                	<li class="mx-2" data-filter=".jeju">제주도</li>
+                	<li class="mx-2" data-filter="seoul">서울</li>
+                	<li class="mx-2" data-filter="incheon">인천</li>
+                	<li class="mx-2" data-filter="ggd">경기</li>
+                	<li class="mx-2" data-filter="gwd">강원도</li>
+                	<li class="mx-2" data-filter="ccd">충청도</li>
+                	<li class="mx-2" data-filter="gsd">경상도</li>
+                	<li class="mx-2" data-filter="jld">전라도</li>
+                	<li class="mx-2" data-filter="jeju">제주도</li>
                 </ul>
             </div>
         </div>
 		
-		<!-- search -->
-		<div class="col-5 position-relative w-30 text-center" style="margin-left: 30%; margin-top: -20px; margin-bottom: 20px">
-        	<input class="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="text" placeholder="검색어를 입력해주세요.">
+<!-- 				search
+		<div class="col-5 position-relative w-30 text-center" style="margin-left: 30%; margin-top: -20px; margin-bottom: 20px" th:object="${clubSearchDto}">
+        	<input class="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="search" name="searchQuery" placeholder="검색어를 입력해주세요.">
         	<button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">검색</button>
+        </div> -->
+		
+		<!-- search -->
+		<form th:action="@{/club/list}" method="get" role="search">
+		<div class="col-5 position-relative w-30 text-center" style="margin-left: 30%; margin-top: -20px; margin-bottom: 20px">
+        	<input class="form-control bg-light border-light w-100 py-3 ps-4 pe-5" type="search" name="searchQuery" placeholder="검색어를 입력해주세요.">
+        	<button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">검색</button>
         </div>
+		</form>
  	
  		
- 		<th:block th:each>
- 		
+ 		<!-- <th:block th:each="club, status : ${clubs.getContent()}"> -->
+ 		<th:block th:each="club, status: ${clubs.getContent()}">
+			<!-- List Start -->
+			<div class="container-xxl py-5">
+				<div class="container">
+					<div class="row g-5 align-items-end">
+						<div class="col-lg-4 col-md-5 wow">
+							<a th:href="'/club/' + ${club.id}">
+								<img class="img-fluid rounded text-center" th:src="${club.imgUrl}" th:alt="${club.clubName}">
+							</a>
+						</div>
+						<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s" th:field="*{searchBy}">
+							<h4 class="text-primary mb-4" th:text="${club.region}"></h4>
+							<a th:href="'/club/' + ${club.id}">
+								<h2 class="display-7 mb-4" th:text="${club.clubName}" th:value="${clubName}"></h2>
+							</a>
+							<p class="mb-4" th:text="${club.keyword}" th:value="${keyword}"></p>
+						</div>
+						<div class="col-lg-2 col-md-12 wow">
+							<div class="row g-5" style="padding-bottom: 110px;">
+								<a class="btn btn-primary py-3 px-4 align-top space" th:href="'/club/' + ${club.id}">둘러보기</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<!-- List End -->
  		</th:block>
-
-		<!-- List1 Start -->
-		<div class="container-xxl py-5">
-			<div class="container">
-				<div class="row g-5 align-items-end">
-					<div class="col-lg-4 col-md-5 wow">
-						<img class="img-fluid rounded text-center" src="/img/clubmain-03.png">
-					</div>
-					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
-						<h4 class="text-primary mb-4">[지역 들어가는 곳]</h4>
-						<h2 class="display-7 mb-4">[소모임 이름 들어가는 곳]</h2>
-						<p class="mb-4">[소모임 검색 키워드] Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-					</div>
-					<div class="col-lg-2 col-md-12 wow">
-						<div class="row g-5" style="padding-bottom: 110px;">
-							<a class="btn btn-primary py-3 px-4 align-top space" href="">둘러보기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr />
-		<!-- List1 End -->
 		
-		<!-- List2 Start -->
-		<div class="container-xxl py-5">
-			<div class="container">
-				<div class="row g-5 align-items-end">
-					<div class="col-lg-4 col-md-5 wow">
-						<img class="img-fluid rounded text-center" src="/img/clubmain-02.png">
-					</div>
-					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
-						<h4 class="text-primary mb-4">[지역 들어가는 곳]</h4>
-						<h3 class="display-7 mb-4">[소모임 이름 들어가는 곳]</h3>
-						<p class="mb-4">[소모임 검색 키워드] Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-					</div>
-					<div class="col-lg-2 col-md-12 wow">
-						<div class="row g-5" style="padding-bottom: 110px;">
-							<a class="btn btn-primary py-3 px-4 align-top space" href="">둘러보기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr />
-		<!-- List2 End -->
 		
-		<!-- List3 Start -->
-		<div class="container-xxl py-5">
-			<div class="container">
-				<div class="row g-5 align-items-end">
-					<div class="col-lg-4 col-md-5 wow">
-						<img class="img-fluid rounded text-center" src="/img/clubmain-04.png">
-					</div>
-					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
-						<h4 class="text-primary mb-4">[지역 들어가는 곳]</h4>
-						<h1 class="display-7 mb-4">[소모임 이름 들어가는 곳]</h1>
-						<p class="mb-4">[소모임 검색 키워드] Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-					</div>
-					<div class="col-lg-2 col-md-12 wow">
-						<div class="row g-5" style="padding-bottom: 110px;">
-							<a class="btn btn-primary py-3 px-4 align-top space" href="">둘러보기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr />
-		<!-- List3 End -->
+		<!-- 페이징 공식 -->
+	    <!-- start = (현재 페이지 번호/보여줄 페이지수) + 1, 페이지 시작 번호 -->
+	    <!-- end = start + (보여줄 페이지 수 - 1 ), 페이지 끝 번호 -->
+	    <nav th:with="start=${(clubs.number/maxPage)*maxPage + 1}, 
+					  end=(${(clubs.totalPages == 0) ? 1 : (start + (maxPage -1) < clubs.totalPages ? start + (maxPage -1) : clubs.totalPages)})" 
+				aria-label="Page navigation example">
+			  <ul class="pagination d-flex justify-content-center">
+			    <li class="page-item" th:classappend="${clubs.first}? 'disabled'">
+			    	<!-- 검색을 get 방식으로 받기 때문에 이전/다음 버튼을 눌러도 쿼리 스트링이 유지되어야 한다. -->
+			    	<a th:href="@{'/club/list' + '?searchQuery=' + ${clubSearchDto.searchQuery} + '&page=' + ${clubs.number-1}}" class="page-link">
+			    		<span>이전</span>
+			    	</a>
+			    </li>
+			    <li class="page-item" 
+			    	th:each="page: ${#numbers.sequence(start, end)}"
+			   		th:classappend="${clubs.number eq page-1}?'active':''">
+			    	<a class="page-link" th:inline="text"
+			    	th:href="@{'/club/list' + '?searchQuery=' + ${clubSearchDto.searchQuery} + '&page=' + ${page-1}}">[[${page}]]</a>
+			    </li>
+			    <li class="page-item" th:classappend="${clubs.last}? 'disabled'">
+			    	<a class="page-link" 
+			    	th:href="@{'/list' + '?searchQuery=' + ${clubSearchDto.searchQuery} + '&page=' + ${clubs.number+1}}">Next</a>
+			    </li>
+			  </ul>
+			</nav>
 		
 	</div>
 </body>
