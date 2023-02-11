@@ -33,11 +33,15 @@ public class ClubRepositoryCustomImpl implements ClubRepositoryCustom {
 		return null;
 	}
 	
+	private BooleanExpression clubNameLike(String searchQuery) {
+		return StringUtils.isEmpty(searchQuery) ? null : QClub.club.clubName.like("%" + searchQuery + "%");
+	}
+	
 	@Override
 	public Page<Club> getClubList(ClubSearchDto clubSearchDto, Pageable pageable) {
 		List<Club> content = queryFactory
 				.selectFrom(QClub.club)
-				.where(searchByLike(clubSearchDto.getSearchBy(), clubSearchDto.getSearchQuery()))
+				.where(clubNameLike(clubSearchDto.getSearchQuery()))
 				.orderBy(QClub.club.id.desc())
 				.offset(pageable.getOffset())
 				.limit(pageable.getPageSize())

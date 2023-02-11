@@ -74,7 +74,7 @@ public class ClubController {
 
 	//소모임 리스트 출력
 	@GetMapping(value = {"list", "list/{page}"})
-	public String clubList(ClubSearchDto clubSearchDto, @PathVariable("page") Optional<Integer> page, Model model) {
+	public String clubList(ClubSearchDto clubSearchDto, Optional<Integer> page, Model model) {
 //		Page<ClubListDto> clubs = clubService.getClubList(clubSearchDto, pageable);
 		
 
