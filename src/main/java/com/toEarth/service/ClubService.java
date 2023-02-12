@@ -3,6 +3,8 @@ package com.toEarth.service;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +40,13 @@ public class ClubService {
 		return clubRepository.getClubList(clubSearchDto, pageable);
 	}
 	
-	
+	@Transactional(readOnly=true)
+	public ClubDto getclubDtl(Long clubId) {
+		Club club= clubRepository.findById(clubId)
+								 .orElseThrow(EntityNotFoundException::new);
+		
+		ClubDto clubDto = ClubDto.of(club);
+	}
 
 	
 	

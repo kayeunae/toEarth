@@ -1,6 +1,9 @@
 package com.toEarth.dto;
 
+import org.modelmapper.ModelMapper;
+
 import com.querydsl.core.annotations.QueryProjection;
+import com.toEarth.entity.Club;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +26,15 @@ public class ClubDto {
 	private String imgUrl;
 	
 	private String oriImgName;
+	
+	private static ModelMapper modelMapper = new ModelMapper();
+	
+	public Club creatClub() {
+		return modelMapper.map(this, Club.class);
+	}
+	
+	public static ClubDto of(Club club) {
+		return modelMapper.map(club, ClubDto.class);
+	}
 	
 }

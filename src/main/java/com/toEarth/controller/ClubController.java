@@ -93,5 +93,12 @@ public class ClubController {
 		return "club/clubList";
 		
 	}
+	
+	//소모임 둘러보기 버튼 클릭
+	@GetMapping(value = "{club_id}")
+	public String clubDetail(Model model) {
+		model.addAttribute("clubDto", new ClubDto());
+		return "club/clubDtl";
+	}
 
 }
