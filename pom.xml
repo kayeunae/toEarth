@@ -92,12 +92,6 @@
    			<artifactId>modelmapper</artifactId>
      		<version>3.1.0</version>
 		</dependency>
-
-        <dependency>
-        	<groupId>com.example</groupId>
-        	<artifactId>global</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
 	</dependencies>
 
 	<build>

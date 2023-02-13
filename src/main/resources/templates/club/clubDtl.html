@@ -14,31 +14,33 @@
 </head>
 <body>
 	<div layout:fragment="content">
-	
+
 		<div class="container-xxl py-5">
-				<div class="container">
-					<div class="row g-5 align-items-end">
-						<div class="col-lg-4 col-md-5 wow">
-							<img class="img-fluid rounded text-center" src="/img/clubmain-03.png" alt="소모임 메인 이미지">
-						</div>
-						<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
-							<h4 class="text-primary mb-4">지역</h4>
-							<h2 class="display-7 mb-4">소모임명</h2>
-							<p class="mb-4">키워드</p>
-						</div>
+			<input type="hidden" th:field="*{club_id}" />
+			<div class="container">
+				<div class="row g-5 align-items-end">
+					<div class="col-lg-4 col-md-5 wow">
+						<img class="img-fluid rounded text-center" th:src="${club.imgUrl}"
+							th:alt="${club.oriImgName}">
+					</div>
+					<div class="col-lg-6 col-md-7 wow" data-wow-delay="0.3s">
+						<h4 class="text-primary mb-4" th:text="${club.region}">지역</h4>
+						<h2 class="display-7 mb-4" th:text="${club.clubName}">소모임명</h2>
+						<p class="mb-4" th:text="${club.keyword}">키워드</p>
 					</div>
 				</div>
 			</div>
-			
+		</div>
+
 		<div class="row wow fadeInUp" data-wow-delay="0.3s">
-        	<div class="col-12 text-center" th:object="${clubSearchDto}">
-            	<ul class="list-inline rounded mb-5" id="portfolio-flters">
-                	<li class="mx-2 active">소모임 안내</li>
-                	<li class="mx-2">커뮤니티</li>
-                	<li class="mx-2">소모임 멤버</li>
-                </ul>
-            </div>
-        </div>
+			<div class="col-12 text-center" th:object="${clubSearchDto}">
+				<ul class="list-inline rounded mb-5" id="portfolio-flters">
+					<li class="mx-2 active">소모임 안내</li>
+					<li class="mx-2">커뮤니티</li>
+					<li class="mx-2">소모임 멤버</li>
+				</ul>
+			</div>
+		</div>
 
 
 		<div class="row justify-content-center">
@@ -48,11 +50,24 @@
 					<div class="row g-3">
 						<div class="col-sm-12">
 							<div class="form-floating">
-								<div class="form-control border-0" style="height: 500px; background-color: white;"></div>
+								<div class="form-control border-0"
+									style="height: 500px; background-color: white;"
+									th:text="${club.announce}"></div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- 소모임 생성자만 보이도록 설정하기 -->
+				<th:if>
+				<div class="col-lg-2 col-md-12 wow">
+					<div class="row g-5" style="padding-bottom: 20px; margin-top: 10px;">
+						<a class="btn btn-primary py-3 px-4 align-top space center"
+							th:href="'/club/modify/' + ${club.id}">수정하기</a>
+					</div>
+				</div>
+				</th:if>
+
+
 			</div>
 		</div>
 

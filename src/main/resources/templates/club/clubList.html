@@ -78,7 +78,7 @@
  		<!-- <th:block th:each="club, status : ${clubs.getContent()}"> -->
  		<th:block th:each="club, status: ${clubs.getContent()}">
 			<!-- List Start -->
-			<div class="container-xxl py-5">
+			<div class="container-xxl py-5"> 
 				<div class="container">
 					<div class="row g-5 align-items-end">
 						<div class="col-lg-4 col-md-5 wow">
@@ -95,8 +95,7 @@
 						</div>
 						<div class="col-lg-2 col-md-12 wow">
 							<div class="row g-5" style="padding-bottom: 110px;">
-								<a class="btn btn-primary py-3 px-4 align-
-								top space" th:href="'/club/' + ${club.id}">둘러보기</a>
+								<a class="btn btn-primary py-3 px-4 align-top space" th:href="${club.id}">둘러보기</a>
 							</div>
 							
 						</div>

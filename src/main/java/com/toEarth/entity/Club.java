@@ -63,4 +63,11 @@ public class Club {
 		this.imgName = imgName;
 		this.imgUrl = imgUrl;
 	}
+	
+	public void updateClub(ClubDto clubDto) {
+		this.clubName = clubDto.getClubName();
+		this.region = clubDto.getRegion();
+		this.keyword = clubDto.getKeyword();
+		this.announce = clubDto.getAnnounce();
+	}
 }
