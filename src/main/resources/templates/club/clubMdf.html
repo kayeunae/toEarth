@@ -53,7 +53,7 @@
 				</div>
 				
 				
-				<form th:action="'/club/modify/' + ${club.id}" method="post" enctype="multipart/form-data" th:object="${clubDto}">
+				<form role="form" method="post" enctype="multipart/form-data" th:object="${clubDto}">
 					<input type="hidden" th:field="*{id}" />
 					
 					<div class="row justify-content-center">
@@ -125,7 +125,8 @@
 										<p th:if="${#fields.hasErrors('keyword')}" th:errors="*{keyword}" class="fieldError">Incorrect Data</p>
 									</div>
 									<div class="col-12 text-center">
-										<button class="btn btn-primary py-3 px-4" type="submit">수정하기</button>
+										<button th:formaction="@{'/club/modify/' + ${id}}" class="btn btn-primary py-3 px-4" type="submit" style="margin-right:20px">수정하기</button>
+										<button class="btn btn-primary py-3 px-4" type="submit" style="margin-left:20px">삭제하기</button>
 									</div>
 								</div>
 							</div>

@@ -114,7 +114,7 @@ public class ClubController {
 		return "club/clubMdf";
 	}
 
-	
+	 //소모임 수정
 	 @PostMapping(value = "/modify/{club_id}")
 	 public String clubUpdate(@Valid ClubDto clubDto, BindingResult bindingResult,
 			 Model model, @RequestParam("file") MultipartFile file) {
@@ -132,8 +132,11 @@ public class ClubController {
 		} catch (Exception e) {
 			model.addAttribute("errorMessage", "소모임 정보 수정 중 에러가 발생하였습니다.");
 			return "club/clubMdf";
+		} finally {
+			clubDetail(model,clubDto.getId());
 		}
-		return "redirect:/";
+		
+		return "club/clubDtl";
 		
 	 }
 	 
