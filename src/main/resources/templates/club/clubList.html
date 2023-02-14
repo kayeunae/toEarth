@@ -65,7 +65,7 @@
         </div> -->
 		
 		<!-- search -->
-		<form th:action="@{/club/list}" method="get"  th:object="${clubSearchDto}">
+		<form th:action="@{/club/}" method="get"  th:object="${clubSearchDto}">
 			<select th:field="*{searchBy}" class="form-select" style="width:auto;">
 				  <option value="clubName">소모임명</option>
 				  <option value="keyword">키워드</option>
@@ -129,7 +129,7 @@
 			    </li>
 			    <li class="page-item" th:classappend="${clubs.last}? 'disabled'">
 			    	<a class="page-link" 
-			    	th:href="@{'/list' + '?searchQuery=' + ${clubSearchDto.searchQuery} + '&page=' + ${clubs.number+1}}">Next</a>
+			    	th:href="@{'/list' + '?searchQuery=' + ${clubSearchDto.searchQuery} + '&page=' + ${clubs.number+1}}">다음</a>
 			    </li>
 			  </ul>
 			</nav>

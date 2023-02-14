@@ -64,6 +64,12 @@ public class ClubService {
 		return club.getId();
 	}
 	
+	//소모임 삭제
+	public void deleteClub(Long id) {
+		Club club = clubRepository.findById(id)
+								  .orElseThrow(EntityNotFoundException::new);
+		clubRepository.delete(club);
+	}
 
 	
 	

@@ -3,6 +3,9 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/layout1}">
 <head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 각 페이지에 script가 작성될 위치 -->
@@ -29,6 +32,12 @@
 				}
 			});
 		}
+		
+		function deleteClub(clubid) {
+			if(confirm("소모임을 삭제하시겠습니까?")){
+				location.href='/club/delete/' + clubid;
+			}
+		}
 	</script>
 </th:block>
 
@@ -53,7 +62,7 @@
 				</div>
 				
 				
-				<form role="form" method="post" enctype="multipart/form-data" th:object="${clubDto}">
+				<form role="form" method="post" enctype="multipart/form-data" th:object="${clubDto}" id="frm">
 					<input type="hidden" th:field="*{id}" />
 					
 					<div class="row justify-content-center">
@@ -125,8 +134,9 @@
 										<p th:if="${#fields.hasErrors('keyword')}" th:errors="*{keyword}" class="fieldError">Incorrect Data</p>
 									</div>
 									<div class="col-12 text-center">
-										<button th:formaction="@{'/club/modify/' + ${id}}" class="btn btn-primary py-3 px-4" type="submit" style="margin-right:20px">수정하기</button>
-										<button class="btn btn-primary py-3 px-4" type="submit" style="margin-left:20px">삭제하기</button>
+										<button th:formaction="@{'/club/modify/' + ${clubDto.id}}" class="btn btn-primary py-3 px-4" type="submit" style="margin-right:20px">수정하기</button>
+										<button th:formaction="@{'/delete/' + ${clubDto.id}}" class="btn btn-primary py-3 px-4" type="button" style="margin-left:20px" th:onclick="deleteClub([[${clubDto.id}]])">삭제하기</button>
+										
 									</div>
 								</div>
 							</div>
