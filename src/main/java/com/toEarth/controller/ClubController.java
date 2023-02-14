@@ -72,7 +72,7 @@ public class ClubController {
 			return "club/createClub";
 		}
 
-		return "main";
+		return "redirect:/club/list";
 	}
 
 	// 소모임 리스트 출력
@@ -81,7 +81,7 @@ public class ClubController {
 //		Page<ClubListDto> clubs = clubService.getClubList(clubSearchDto, pageable);
 
 		// page.isPresent() ? page.get() : 0 => url 경로에 페이지 넘버가 있으면 그걸 출력, 아니면 0
-		Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 3);
+		Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 4);
 
 		Page<Club> clubs = clubService.getClubList(clubSearchDto, pageable);
 
@@ -122,7 +122,7 @@ public class ClubController {
 	 //소모임 수정
 	 @PostMapping(value = "/modify/{club_id}")
 	 public String clubUpdate(@Valid ClubDto clubDto, BindingResult bindingResult,
-			 Model model, @RequestParam("file") MultipartFile file) {
+			 Model model, @RequestParam("file") MultipartFile file,@PathVariable("club_id") Long clubId) {
 		 if(bindingResult.hasErrors()) {
 			 return "club/clubMdf";
 		 }
@@ -141,7 +141,7 @@ public class ClubController {
 			clubDetail(model,clubDto.getId());
 		}
 		
-		return "redirect:/";
+		return "redirect:/club/"+clubId;
 		
 	 }
 	 

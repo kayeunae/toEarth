@@ -9,15 +9,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 각 페이지에 script가 작성될 위치 -->
-<th:block layout:fragment="script">
 	<script th:inline="javascript">
 		$(document).ready(function(){
 			var errorMessage = [[${errorMessage}]];
-			alert(errorMessage);
-			
+			if(errorMessage!=null){
+				alert(errorMessage);
+			}
 			bindDomEvent();
 		});	
-	
 	
 		//파일 첨부 시 이미지 파일인지 검사
 		function bindDomEvent(){
@@ -39,8 +38,6 @@
 			}
 		}
 	</script>
-</th:block>
-
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
 	<style>
@@ -71,7 +68,7 @@
 								<div class="row g-3">
 									<div class="col-sm-12">
 										<div class="form-floating" style="text-align: center;">
-											<select class="selbox" name="region" th:field="*{region}" required>
+											<select class="selbox" th:field="*{region}" required> 
 												<option value="" hidden selected>활동 지역</option>
 												<option value="seoul">서울</option>
 												<option value="incheon">인천</option>
@@ -110,14 +107,14 @@
 									</div>
 									<div class="col-sm-12">
 										<div class="form-floating">
-											<input type="text" th:field="*{clubName}" class="form-control border-0" id="clubName" placeholder="Club Name">
+											<input type="text" th:field="*{clubName}" class="form-control border-0" placeholder="Club Name">
 											<label for="clubName">소모임 이름</label>
 										</div>
 										<p th:if="${#fields.hasErrors('clubName')}" th:errors="*{clubName}" class="fieldError">Incorrect Data</p>
 									</div>
 									<div class="col-sm-12">
 										<div class="form-floating">
-	                                   		<input type="text" th:field="*{keyword}" class="form-control border-0" id="keyword" placeholder="Keyword">
+	                                   		<input type="text" th:field="*{keyword}" class="form-control border-0" placeholder="Keyword">
 	                                    	<label for="keyword">검색 키워드를 적어주세요.</label>
 										</div>
 										<p th:if="${#fields.hasErrors('keyword')}" th:errors="*{keyword}" class="fieldError">Incorrect Data</p>
@@ -125,7 +122,7 @@
 									
 									<div class="col-sm-12">
 										<div class="form-floating">
-	                                    <textarea class="form-control border-0" th:field="*{announce}" placeholder="announce" id="announce" style="height: 500px"></textarea>
+	                                    <textarea class="form-control border-0 pt-5" th:field="*{announce}" placeholder="announce" style="height: 500px"></textarea>
 	                                    <label for="announce">
 	                                    	소모임 취지와 활동 내용, 일정 등 소모임 관련 세부 사항을 작성해 주세요.<br />
 	                                    	일반 사용자는 본 내용을 확인 후 가입을 하게 됩니다. 

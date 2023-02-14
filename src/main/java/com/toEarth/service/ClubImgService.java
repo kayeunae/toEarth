@@ -27,7 +27,7 @@ public class ClubImgService {
 		
 		if(!StringUtils.isEmpty(oriImgName)) {
 			imgName = fileService.uploadFile(itemImgLocation, oriImgName, imgfile.getBytes());
-			imgUrl = "/images/data/img"+imgName;
+			imgUrl = "/images/item/"+imgName;
 		}
 		
 		club.updateImg(oriImgName, imgName, imgUrl);
