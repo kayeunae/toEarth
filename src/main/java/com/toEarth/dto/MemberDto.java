@@ -26,4 +26,17 @@ public class MemberDto {
 	
 	@NotBlank(message="연락처는 필수 입력 값입니다.")
 	private String phone;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
