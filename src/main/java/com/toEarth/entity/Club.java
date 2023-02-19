@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
+@Entity   
 @Table(name="club")
 @Getter
 @Setter
