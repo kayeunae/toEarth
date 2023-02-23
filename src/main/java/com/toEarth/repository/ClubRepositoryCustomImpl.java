@@ -29,6 +29,10 @@ public class ClubRepositoryCustomImpl implements ClubRepositoryCustom {
 			return QClub.club.clubName.like("%" + searchQuery + "%" );
 		} else if (StringUtils.equals("keyword", searchBy)) {
 			return QClub.club.keyword.like("%" + searchQuery + "%" );
+			
+			
+			
+			
 		}
 		return null;
 	}

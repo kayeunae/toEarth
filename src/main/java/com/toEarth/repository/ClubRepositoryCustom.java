@@ -12,7 +12,7 @@ import com.toEarth.entity.Club;
 public interface ClubRepositoryCustom {
 	//검색한 데이터를 페이징 처리해서 받아온다.
 	
-//	Page<ClubListDto> getClubList(ClubSearchDto clubSearchDto, Pageable pageable);
+	Page<ClubListDto> getClubList(ClubSearchDto clubSearchDto, Pageable pageable);
 	
 	Page<Club> getClubList(ClubSearchDto clubSearchDto, Pageable pageable);
 }
