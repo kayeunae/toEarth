@@ -70,8 +70,4 @@ public class ClubService {
 								  .orElseThrow(EntityNotFoundException::new);
 		clubRepository.delete(club);
 	}
-
-	
-	
-	
 }
