@@ -70,4 +70,8 @@ public class Club {
 		this.keyword = clubDto.getKeyword();
 		this.announce = clubDto.getAnnounce();
 	}
+	
+	
+	
+	
 }
