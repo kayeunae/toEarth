@@ -47,15 +47,6 @@ public class ClubController {
 		return "club/createClub";
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// 소모임 생성 버튼 클릭
 	@PostMapping(value = "createClub")
 	public String newClub(@Valid ClubDto clubDto, BindingResult bindingResult, Model model,
