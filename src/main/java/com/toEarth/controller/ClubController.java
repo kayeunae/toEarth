@@ -74,6 +74,8 @@ public class ClubController {
 
 		return "redirect:/club/list";
 	}
+	
+	
 
 	// 소모임 리스트 출력
 	@GetMapping(value = { "list", "list/{page}" })
@@ -119,6 +121,8 @@ public class ClubController {
 		return "club/clubMdf";
 	}
 
+	
+	
 	 //소모임 수정
 	 @PostMapping(value = "/modify/{club_id}")
 	 public String clubUpdate(@Valid ClubDto clubDto, BindingResult bindingResult,

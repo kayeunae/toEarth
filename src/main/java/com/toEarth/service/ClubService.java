@@ -36,6 +36,8 @@ public class ClubService {
 		return clubRepository.findAll();
 	}
 	
+	
+	
 	@Transactional(readOnly = true)
 	public Page<Club> getClubList(ClubSearchDto clubSearchDto, Pageable pageable) {
 		return clubRepository.getClubList(clubSearchDto, pageable);
@@ -63,6 +65,9 @@ public class ClubService {
 		
 		return club.getId();
 	}
+	
+	
+	
 	
 	//소모임 삭제
 	public void deleteClub(Long id) {
