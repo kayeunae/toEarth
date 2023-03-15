@@ -140,13 +140,8 @@
 					</div>
 					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 				</form>
-				
 			</div>
 		</div>
-		
-		
-		
-		
 		<!-- Sign up End -->
 		
 		<script>
@@ -160,7 +155,6 @@
 			})
 			
 			function upload_com(){
-				
 				var fileValue = $("#upload").val().split("\\");
 				var fileName = fileValue[fileValue.length-1]; // 파일명
 				$('#file_name').html(fileName);
