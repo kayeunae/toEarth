@@ -24,11 +24,14 @@ public class MemberController {
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
 
+	
+	
 	@GetMapping(value="sign")
 	public String sign(Model model) {
 		model.addAttribute("signDto", new MemberDto());
 		return "member/sign";
 	}
+	
 	
 	@PostMapping(value="signup")
 	public String signUp(@Valid MemberDto signDto, BindingResult bindingResult, Model model) {
@@ -48,10 +51,12 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	
 	@GetMapping(value="login")
 	public String logIn() {
 		return "member/login";
 	}
+	
 	
 	@GetMapping(value="login/error")
 	public String loginError(Model model) {

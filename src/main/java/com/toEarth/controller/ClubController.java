@@ -76,6 +76,7 @@ public class ClubController {
 	}
 	
 	
+	
 
 	// 소모임 리스트 출력
 	@GetMapping(value = { "list", "list/{page}" })
@@ -98,6 +99,7 @@ public class ClubController {
 
 	}
 
+	
 	// 소모임 둘러보기 버튼 클릭(소모임 상세 페이지)
 	@GetMapping(value = "{club_id}")
 	public String clubDetail(Model model, @PathVariable("club_id") Long clubId) {
@@ -121,6 +123,7 @@ public class ClubController {
 		return "club/clubMdf";
 	}
 
+	
 	
 	
 	 //소모임 수정
