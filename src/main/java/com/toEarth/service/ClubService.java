@@ -54,6 +54,9 @@ public class ClubService {
 		return clubDto;
 	}
 	
+	
+	
+	
 	//소모임 정보 수정하기
 	public Long updateClub(ClubDto clubDto, MultipartFile file) throws Exception {
 		Club club = clubRepository.findById(clubDto.getId())

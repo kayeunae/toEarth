@@ -152,6 +152,9 @@ public class ClubController {
 		
 	 }
 	 
+	 
+	 
+	 
 	 //소모임 삭제
 	 @GetMapping(value = "/delete/{clubId}")
 	 public String deleteClub(@PathVariable("clubId") Long clubId, Principal principal) {
