@@ -123,10 +123,7 @@ public class ClubController {
 		return "club/clubMdf";
 	}
 
-	
-	
-	
-	 //소모임 수정
+	//소모임 수정
 	 @PostMapping(value = "/modify/{club_id}")
 	 public String clubUpdate(@Valid ClubDto clubDto, BindingResult bindingResult,
 			 Model model, @RequestParam("file") MultipartFile file,@PathVariable("club_id") Long clubId) {
@@ -151,9 +148,6 @@ public class ClubController {
 		return "redirect:/club/"+clubId;
 		
 	 }
-	 
-	 
-	 
 	 
 	 //소모임 삭제
 	 @GetMapping(value = "/delete/{clubId}")

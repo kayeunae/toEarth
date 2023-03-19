@@ -50,7 +50,6 @@ public class ClubService {
 		
 		//엔티티 객체 -> DTO 객체로 변환
 		ClubDto clubDto = ClubDto.of(club);
-		
 		return clubDto;
 	}
 	
@@ -60,7 +59,6 @@ public class ClubService {
 								  .orElseThrow(EntityNotFoundException::new);
 		
 		club.updateClub(clubDto);
-		
 		return club.getId();
 	}
 	
