@@ -119,16 +119,17 @@
 										</div>
 										<p th:if="${#fields.hasErrors('keyword')}" th:errors="*{keyword}" class="fieldError">Incorrect Data</p>
 									</div>
+									
 									<div class="col-12 text-center">
 										<button class="btn btn-primary py-3 px-4" type="submit">소모임 만들기</button>
 									</div>
+									
 								</div>
 							</div>
 						</div>
 					</div>
 					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 				</form>
-				
 			</div>
 		</div>
 		<!-- Sign up End -->
