@@ -30,16 +30,19 @@ public class ClubService {
 		return clubRepository.save(club);
 	}
 	
+	
 	//소모임 리스트 가져오기
 	@Transactional(readOnly = true)
 	public List<Club> getClubListBasic() {
 		return clubRepository.findAll();
 	}
 	
+	
 	@Transactional(readOnly = true)
 	public Page<Club> getClubList(ClubSearchDto clubSearchDto, Pageable pageable) {
 		return clubRepository.getClubList(clubSearchDto, pageable);
 	}
+	
 	
 	//소모임 상세페이지 가져오기
 	@Transactional(readOnly=true)
@@ -52,6 +55,7 @@ public class ClubService {
 		ClubDto clubDto = ClubDto.of(club);
 		return clubDto;
 	}
+	
 	
 	//소모임 정보 수정하기
 	public Long updateClub(ClubDto clubDto, MultipartFile file) throws Exception {

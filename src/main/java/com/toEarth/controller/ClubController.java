@@ -71,13 +71,9 @@ public class ClubController {
 			model.addAttribute("errorMessage", "소모임 생성 중에 에러가 발생했습니다.");
 			return "club/createClub";
 		}
-
 		return "redirect:/club/list";
 	}
 	
-	
-	
-
 	// 소모임 리스트 출력
 	@GetMapping(value = { "list", "list/{page}" })
 	public String clubList(ClubSearchDto clubSearchDto, Optional<Integer> page, Model model) {
@@ -96,7 +92,6 @@ public class ClubController {
 //		model.addAttribute("clubs", clubs);
 
 		return "club/clubList";
-
 	}
 
 	
