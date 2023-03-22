@@ -46,6 +46,11 @@ public class ClubController {
 		model.addAttribute("clubDto", new ClubDto());
 		return "club/createClub";
 	}
+	
+	
+	
+	
+	
 
 	// 소모임 생성 버튼 클릭
 	@PostMapping(value = "createClub")
