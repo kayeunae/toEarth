@@ -24,8 +24,6 @@ public class MemberController {
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
 
-	
-	
 	@GetMapping(value="sign")
 	public String sign(Model model) {
 		model.addAttribute("signDto", new MemberDto());

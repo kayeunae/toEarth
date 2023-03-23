@@ -23,7 +23,6 @@
         	if($(this).text()=='jeju'){$(this).text('제주도')}
         })
     })
-       
 
     function page(page){
         var searchBy = $("#searchBy").val();
@@ -141,8 +140,7 @@
 			    	th:href="@{'/list' + '?searchQuery=' + ${clubSearchDto.searchQuery} + '&page=' + ${clubs.number+1}}">다음</a>
 			    </li>
 			  </ul>
-			</nav>
-		
+		</nav>
 	</div>
 </body>
 </html>

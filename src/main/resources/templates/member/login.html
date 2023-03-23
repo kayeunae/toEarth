@@ -45,6 +45,7 @@
 										</div>
 									</div>
 									
+									
 									<div class="col-sm-12">
 										<div class="form-floating">
 											<input type="password" class="form-control border-0" name="password" id="password" placeholder="Password">
@@ -67,8 +68,9 @@
 			</div>
 			<!-- Sign up End -->
 		</form>
-		<script>
 		
+		
+		<script>
 		if(getCookie("setCookieYN") == 'Y') {
 			$("#id_save").prop("checked", true);
 			$("#email").val(getCookie("userInputId"));
