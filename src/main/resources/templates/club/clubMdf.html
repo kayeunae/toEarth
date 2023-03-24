@@ -132,7 +132,6 @@
 									<div class="col-12 text-center">
 										<button th:formaction="@{'/club/modify/' + ${clubDto.id}}" class="btn btn-primary py-3 px-4" type="submit" style="margin-right:20px">수정하기</button>
 										<button th:formaction="@{'/delete/' + ${clubDto.id}}" class="btn btn-primary py-3 px-4" type="button" style="margin-left:20px" th:onclick="deleteClub([[${clubDto.id}]])">삭제하기</button>
-										
 									</div>
 								</div>
 							</div>
@@ -143,6 +142,7 @@
 			</div>
 		</div>
 		<!-- Sign up End -->
+		
 		
 		<script>
 			$('.upload__button').click(function(){
