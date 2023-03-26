@@ -46,11 +46,6 @@ public class ClubController {
 		model.addAttribute("clubDto", new ClubDto());
 		return "club/createClub";
 	}
-	
-	
-	
-	
-	
 
 	// 소모임 생성 버튼 클릭
 	@PostMapping(value = "createClub")
@@ -98,7 +93,6 @@ public class ClubController {
 
 		return "club/clubList";
 	}
-
 	
 	// 소모임 둘러보기 버튼 클릭(소모임 상세 페이지)
 	@GetMapping(value = "{club_id}")

@@ -37,7 +37,6 @@ public class ClubService {
 		return clubRepository.findAll();
 	}
 	
-	
 	@Transactional(readOnly = true)
 	public Page<Club> getClubList(ClubSearchDto clubSearchDto, Pageable pageable) {
 		return clubRepository.getClubList(clubSearchDto, pageable);
@@ -56,7 +55,6 @@ public class ClubService {
 		return clubDto;
 	}
 	
-	
 	//소모임 정보 수정하기
 	public Long updateClub(ClubDto clubDto, MultipartFile file) throws Exception {
 		Club club = clubRepository.findById(clubDto.getId())
@@ -72,4 +70,6 @@ public class ClubService {
 								  .orElseThrow(EntityNotFoundException::new);
 		clubRepository.delete(club);
 	}
+	
+	
 }
