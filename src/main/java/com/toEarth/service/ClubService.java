@@ -30,7 +30,6 @@ public class ClubService {
 		return clubRepository.save(club);
 	}
 	
-	
 	//소모임 리스트 가져오기
 	@Transactional(readOnly = true)
 	public List<Club> getClubListBasic() {

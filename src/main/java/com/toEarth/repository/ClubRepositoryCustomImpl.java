@@ -47,6 +47,10 @@ public class ClubRepositoryCustomImpl implements ClubRepositoryCustom {
 				.limit(pageable.getPageSize())
 				.fetch();
 		
+		
+		
+		
+		
 		long total = queryFactory.select(Wildcard.count).from(QClub.club)
 				.where(searchByLike(clubSearchDto.getSearchBy(), clubSearchDto.getSearchQuery()))
 				.fetchOne();

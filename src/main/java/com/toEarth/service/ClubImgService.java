@@ -31,7 +31,6 @@ public class ClubImgService {
 		}
 		
 		club.updateImg(oriImgName, imgName, imgUrl);
-		
 	}
 
 }
