@@ -42,6 +42,11 @@ public class ClubService {
 	}
 	
 	
+	
+	
+	
+	
+	
 	//소모임 상세페이지 가져오기
 	@Transactional(readOnly=true)
 	public ClubDto getclubDtl(Long clubId) {
