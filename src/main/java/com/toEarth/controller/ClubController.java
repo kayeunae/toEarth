@@ -62,6 +62,7 @@ public class ClubController {
 			return "club/createClub";
 		}
 
+		
 		try {
 			Club club = Club.createClub(clubDto);
 			Club savedClub = clubService.saveClub(club);
@@ -94,6 +95,7 @@ public class ClubController {
 		return "club/clubList";
 	}
 	
+	
 	// 소모임 둘러보기 버튼 클릭(소모임 상세 페이지)
 	@GetMapping(value = "{club_id}")
 	public String clubDetail(Model model, @PathVariable("club_id") Long clubId) {
@@ -101,6 +103,7 @@ public class ClubController {
 		model.addAttribute("club", clubDto);
 		return "club/clubDtl";
 	}
+	
 
 	// 소모임 수정 페이지 띄우기
 	@GetMapping(value = "/modify/{club_id}")
@@ -116,6 +119,7 @@ public class ClubController {
 		}
 		return "club/clubMdf";
 	}
+	
 
 	//소모임 수정
 	 @PostMapping(value = "/modify/{club_id}")
@@ -140,8 +144,8 @@ public class ClubController {
 		}
 		
 		return "redirect:/club/"+clubId;
-		
 	 }
+	 
 	 
 	 //소모임 삭제
 	 @GetMapping(value = "/delete/{clubId}")
