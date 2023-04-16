@@ -146,12 +146,6 @@ public class ClubController {
 		return "redirect:/club/"+clubId;
 	 }
 	 
-	 
-	 
-	 
-	 
-	 
-	 
 	 //소모임 삭제
 	 @GetMapping(value = "/delete/{clubId}")
 	 public String deleteClub(@PathVariable("clubId") Long clubId, Principal principal) {
