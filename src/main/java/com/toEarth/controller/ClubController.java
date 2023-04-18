@@ -134,6 +134,10 @@ public class ClubController {
 				return "club/clubMdf";
 		}
 		
+		
+		
+		
+		
 		try {
 			clubService.updateClub(clubDto, file);
 		} catch (Exception e) {
