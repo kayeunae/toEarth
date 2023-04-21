@@ -29,12 +29,6 @@ public class MemberController {
 		model.addAttribute("signDto", new MemberDto());
 		return "member/sign";
 	}
-	
-	
-	
-	
-	
-	
 	@PostMapping(value="signup")
 	public String signUp(@Valid MemberDto signDto, BindingResult bindingResult, Model model) {
 		
