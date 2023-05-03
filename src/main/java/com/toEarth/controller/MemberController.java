@@ -30,12 +30,19 @@ public class MemberController {
 		return "member/sign";
 	}
 	
+	
+	
 	@PostMapping(value="signup")
 	public String signUp(@Valid MemberDto signDto, BindingResult bindingResult, Model model) {
 		
 		if(bindingResult.hasErrors()) {
 			return "member/sign";
 		}
+		
+		
+		
+		
+		
 		
 		try {
 			Member member = Member.createMember(signDto, passwordEncoder);
