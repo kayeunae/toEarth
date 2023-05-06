@@ -30,8 +30,6 @@ public class MemberController {
 		return "member/sign";
 	}
 	
-	
-	
 	@PostMapping(value="signup")
 	public String signUp(@Valid MemberDto signDto, BindingResult bindingResult, Model model) {
 		
@@ -49,9 +47,6 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-	
-	
-	
 	
 	@GetMapping(value="login")
 	public String logIn() {
