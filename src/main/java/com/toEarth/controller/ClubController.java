@@ -103,7 +103,6 @@ public class ClubController {
 		model.addAttribute("club", clubDto);
 		return "club/clubDtl";
 	}
-	
 
 	// 소모임 수정 페이지 띄우기
 	@GetMapping(value = "/modify/{club_id}")
@@ -119,7 +118,6 @@ public class ClubController {
 		}
 		return "club/clubMdf";
 	}
-	
 
 	//소모임 수정
 	 @PostMapping(value = "/modify/{club_id}")
@@ -134,10 +132,6 @@ public class ClubController {
 				return "club/clubMdf";
 		}
 		
-		
-		
-		
-		
 		try {
 			clubService.updateClub(clubDto, file);
 		} catch (Exception e) {
@@ -149,11 +143,6 @@ public class ClubController {
 		
 		return "redirect:/club/"+clubId;
 	 }
-	 
-	 
-	 
-	 
-	 
 	 
 	 //소모임 삭제
 	 @GetMapping(value = "/delete/{clubId}")
