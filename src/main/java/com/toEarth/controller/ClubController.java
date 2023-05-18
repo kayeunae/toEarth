@@ -47,6 +47,8 @@ public class ClubController {
 		return "club/createClub";
 	}
 	
+	
+	
 	// 소모임 생성 버튼 클릭
 	@PostMapping(value = "createClub")
 	public String newClub(@Valid ClubDto clubDto, BindingResult bindingResult, Model model,
@@ -62,6 +64,8 @@ public class ClubController {
 			return "club/createClub";
 		}
 
+		
+		
 		
 		try {
 			Club club = Club.createClub(clubDto);
@@ -94,6 +98,9 @@ public class ClubController {
 
 		return "club/clubList";
 	}
+	
+	
+	
 	
 	
 	// 소모임 둘러보기 버튼 클릭(소모임 상세 페이지)
